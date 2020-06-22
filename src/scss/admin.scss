@@ -1,0 +1,20 @@
+#adminmenu {
+
+    li {
+        padding-right: 5px;
+    }
+
+    li.wp-menu-separator {
+        height: 25px;
+    }
+
+
+}
+
+#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap {
+    width: 170px;
+}
+
+#wpcontent, #wpfooter {
+    margin-left: 170px;
+}

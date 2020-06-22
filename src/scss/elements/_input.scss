@@ -1,0 +1,149 @@
+.input-wrapper {
+  display: flex;
+  flex-flow: column-reverse;
+  position: relative;
+  flex: 1;
+  margin: 0 10px;
+
+  &.-captcha {
+    .captcha-input {
+      margin-top: 15px;
+    }
+  }
+
+  &.-show-placeholder {
+
+    input, textarea {
+
+      &::-webkit-input-placeholder { opacity: .35; }
+
+      &::-ms-input-placeholder { opacity: .35; }
+
+      &::-moz-placeholder { opacity: .35; }
+
+    }
+
+  }
+
+  &.-error {
+
+    input { box-shadow: 0 2px 0px $error; }
+
+  }
+
+  &.-success {
+
+    input { box-shadow: 0 2px 0px $success; }
+
+  }
+
+  &.-readonly {
+
+    label {
+      color: $grey-80;
+      opacity: .4;
+    }
+
+    input {
+      box-shadow: 0 1px 0 $grey-40;
+
+      &:focus {  box-shadow: 0 1px 0 $grey-40; }
+
+    }
+
+  }
+
+  label,
+  input {
+    transition: all 0.2s;
+    touch-action: manipulation;
+    font-weight: $font-news;
+    margin-bottom: 0;
+    display: block;
+  }
+
+  input {
+    font-size: 1.6rem;
+    border: 0;
+    font-family: inherit;
+    -webkit-appearance: none;
+    padding: 5px 7px 7px;
+    font-weight: 500;
+    cursor: text;
+    color: $grey-100;
+    box-shadow: 0 1px 0px $grey-40;
+    border-radius: 0;
+    font-weight: $font-medium;
+
+    ~label {
+      color: $grey-80;
+      opacity: .8;
+      font-size: 1.3rem;
+      transform-origin: left bottom;
+      pointer-events: none;
+      padding-left: 5px;
+    }
+
+    &:placeholder-shown + label {
+      cursor: text;
+      max-width: 66.66%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      transform: translate(0, 2.1rem) scale(1.15);
+      color: $grey-80;
+    }
+
+    &:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset !important; }
+
+    &:not(:placeholder-shown) + label,
+    &:focus + label {
+      transform: translate(0, 0) scale(1);
+      opacity: .8;
+    }
+
+    &::-webkit-input-placeholder {
+      opacity: 0;
+      font-weight: 400;
+      transition: inherit;
+    }
+
+    &::-ms-input-placeholder {
+      opacity: 0;
+      font-weight: 400;
+      transition: inherit;
+    }
+
+    &::-moz-placeholder {
+      opacity: 0;
+      font-weight: 400;
+      transition: inherit;
+    }
+
+    &:focus {
+      color: $grey-100;
+      box-shadow: 0 2px 0px $blue-50;
+      outline: 0;
+
+      &::-webkit-input-placeholder { opacity: .35; }
+
+      &::-ms-input-placeholder { opacity: .35; }
+
+      &::-moz-placeholder { opacity: .35; }
+
+    }
+
+    &.-orange {
+
+      &:focus { box-shadow: 0 2px 0px $orange-75; }
+
+    }
+
+  }
+
+  &:first-child { margin-left: 0 }
+
+  &:last-child { margin-right: 0 }
+
+  &.-no-margin { margin: 0; }
+  
+}

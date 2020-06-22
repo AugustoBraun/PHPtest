@@ -1,0 +1,26 @@
+#suPHP_ConfigPath /home/hiperex/www
+RewriteEngine on
+
+#RewriteCond %{HTTPS} off
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule . index.php
+
+# RewriteRule ^(.*)[^.js][^.html][^.xml][^.css][^.htm][^.jpg]$$ index.php?url=$1 [QSA,L]
+AddType application/x-javascript .js
+AddType text/css .css
+AddType text/xml .xml
+AddType image/jpg .jpg
+AddType text/html .html .htmOptions -IndexesIndexIgnore *
+
+# RewriteRule ^(.+)/(admin|css|fonts|ico|include|js|images)/(.*)$ $2/$3 [L]
+
+

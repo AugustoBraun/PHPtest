@@ -1,0 +1,92 @@
+ul.list {
+  margin: 0;
+  padding: 0;
+  margin-left: 35px;
+  
+  li {
+    font-size: 1.6rem;
+    line-height: 145%;
+    color: $grey-100;
+    position: relative;
+    margin-bottom: 20px;
+    font-weight: 400;
+    display: block;
+    
+    &:before {
+      z-index: 9;
+      content: '';
+      width: 15px;
+      height: 10px;
+      background-color: $blue-25;
+      position: absolute;
+      left: -35px;
+      top: 6px;
+      border-radius: 40px;
+    }
+    
+    &:after {
+      content: '';
+      width: 15px;
+      height: 10px;
+      background-color: $blue-75;
+      position: absolute;
+      left: -30px;
+      top: 6px;
+      border-radius: 40px;
+    }
+    
+    ul {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      margin-left: 35px;
+    }
+    
+  }
+  
+  $colors: (
+  "blue" $blue-25  $blue-75,
+  "green" $green-25 $green-75,
+  "orange"$orange-25 $orange-75
+  );
+  
+  @each $class, $bg-before, $bg-after in $colors {
+    
+    &.-#{$class}-75 {
+      
+      li {
+        
+        &:before { background-color: $bg-before; }
+        
+        &:after { background-color: $bg-after; }
+        
+      }
+      
+    }
+    
+  }
+  
+  &.-min {
+    margin-left: 30px;
+
+    li {
+      font-size: 1.4rem;
+      margin-bottom: 7px;
+      font-weight: $font-book;
+
+      &:before {
+        width: 11px;
+        height: 7px;
+        left: -30px;
+      }
+      
+      &:after {
+        width: 11px;
+        height: 7px;
+        left: -25px;
+      }
+
+    }
+
+  }
+  
+}
